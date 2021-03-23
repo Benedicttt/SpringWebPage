@@ -2,21 +2,63 @@
 <html xmlns:th="http://www.thymeleaf.org">
     <head>
         <title th:text="${title}"/>
+        <link rel="stylesheet" href="/css/sidebar.css">
     </head>
 
     <body>
         <header th:insert="service-webs/header :: header"></header>
         <sidebar th:insert="service-webs/sidebar :: sidebar"></sidebar>
-        <button class="btn btn-dark show-sidebar" style="margin: 10px 10px 10px 300px;">...</button>
+        <button id="sidebarCollapse" class="btn btn-dark show-sidebar" style="margin: 10px 10px 10px 290px;">...</button>
 
-    <main style="margin: 0px 90px 0px 90px;">
-        <h3>Клиента</h3>
+        <main style="margin: 0px 90px 0px 290px;">
 
-        <div th:each="el : ${clients}" class="alert alert-info mt-2">
-            <div th:text="${el.id}"></div>
-        </div>
+            <h3>Клиента</h3>
 
-    </main>
+            <table>
+                <thead>
+                <tr>
+                    <th>Дата</th>
+                    <th>Id</th>
+                    <th>Тип клиента</th>
+                    <th>Тип клиента в EQ</th>
+                    <th>Полное имя клиента</th>
+                    <th>ИНН</th>
+                    <th>КПП</th>
+                    <th>ОГРН</th>
+                    <th>Сегмент</th>
+                    <th>CUS</th>
+                    <th>Отделение</th>
+                    <th>Код. слово</th>
+                    <th>Счета</th>
+                    <th>Карты</th>
+                    <th>К-нс</th>
+                    <th>УЛ</th>
+                    <th>К-рий</th>
+                </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="el : ${clients}" class="alert alert-info mt-1">
+                        <th th:text="${el.created_at}"></th>
+                        <th th:text="${el.id}"></th>
+                        <th th:text="${el.type_client}"></th>
+                        <th th:text="${el.type_client}"></th>
+                        <th th:text="${el.full_name}"></th>
+                        <th th:text="${el.id}"></th>
+                        <th th:text="${el.id}"></th>
+                        <th th:text="${el.id}"></th>
+                        <th th:text="${el.id}"></th>
+                        <th th:text="${el.id}"></th>
+                        <th th:text="${el.id}"></th>
+                        <th th:text="${el.id}"></th>
+                        <th th:text="${el.id}"></th>
+                        <th th:text="${el.id}"></th>
+                        <th th:text="${el.id}"></th>
+                        <th th:text="${el.id}"></th>
+                        <th th:text="${el.id}"></th>
+                    </tr>
+                </tbody>
+            </table>
+        </main>
 
     </body>
 </html>

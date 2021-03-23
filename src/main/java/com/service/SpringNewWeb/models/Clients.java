@@ -12,7 +12,7 @@ public class Clients {
     private Long   id;
 
     private Long   re_creation;
-    private String type_client, first_name, middle_name, last_name, full_name, short_name, transliterated_name, creator;
+    private String type_client, first_name, middle_name, last_name, full_name, short_name, transliterated_name, creator, created_at, updated_at;
 
     public Long getId() {
         return id;
@@ -92,5 +92,21 @@ public class Clients {
 
     public void setCreator(String creator) {
         this.creator = creator;
+    }
+
+    public String getCreated_at() {
+        return created_at;
+    }
+
+    public void setCreated_at(String created_at) {
+        this.created_at = created_at;
+    }
+
+    public String getUpdate_at() {
+        return updated_at;
+    }
+
+    public void setUpdate_at(String update_at) {
+        this.updated_at = update_at;
     }
 }

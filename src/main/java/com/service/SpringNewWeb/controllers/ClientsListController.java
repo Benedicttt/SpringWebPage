@@ -16,7 +16,10 @@ public class ClientsListController {
     @GetMapping("/clients-list")
     public String createClients(Model model) {
         Iterable<Clients> clients = clientsRepository.findAll();
+
+        model.addAttribute("title", "Список клиентов");
         model.addAttribute("clients", clients);
+
         return "clients-list";
     }
 }
