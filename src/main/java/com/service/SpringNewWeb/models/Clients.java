@@ -1,30 +1,46 @@
 package com.service.SpringNewWeb.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.Set;
 
 @Entity
+
 public class Clients {
+
+    @OneToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "client_id")
+    private Organizations organization;
+
+    @OneToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "client_id")
+    private Supports support;
+
+    @OneToMany(fetch = FetchType.EAGER)
+    @JoinColumn(name = "client_id")
+    private Set<Accounts> accounts;
+
+    public Set<Accounts> getAccounts() {
+        return accounts;
+    }
+
+    public void setAccounts(Set<Accounts> accounts) {
+        this.accounts = accounts;
+    }
+
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long client_id;
+
     private Long   id;
 
     private Long   re_creation;
     private String type_client, first_name, middle_name, last_name, full_name, short_name, transliterated_name, creator, created_at, updated_at;
 
-    public Long getId() {
-        return id;
-    }
+    public Long getId() { return id; }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+    public void setId(Long id) { this.id = id; }
 
-    public Long getRe_creation() {
-        return re_creation;
-    }
+    public Long getRe_creation() { return re_creation; }
 
     public void setRe_creation(Long re_creation) {
         this.re_creation = re_creation;
@@ -46,9 +62,7 @@ public class Clients {
         this.first_name = first_name;
     }
 
-    public String getMiddle_name() {
-        return middle_name;
-    }
+    public String getMiddle_name() { return middle_name; }
 
     public void setMiddle_name(String middle_name) {
         this.middle_name = middle_name;
@@ -94,19 +108,36 @@ public class Clients {
         this.creator = creator;
     }
 
-    public String getCreated_at() {
-        return created_at;
+    public String getCreated_at() { return created_at; }
+
+    public void setCreated_at(String created_at) { this.created_at = created_at; }
+
+    public String getUpdate_at() { return updated_at; }
+
+    public void setUpdate_at(String update_at) { this.updated_at = update_at; }
+
+    public Organizations getOrganization() {
+        return organization;
     }
 
-    public void setCreated_at(String created_at) {
-        this.created_at = created_at;
+    public void setOrganization(Organizations organization) {
+        this.organization = organization;
     }
 
-    public String getUpdate_at() {
-        return updated_at;
+    public Supports getSupport() {
+        return support;
     }
 
-    public void setUpdate_at(String update_at) {
-        this.updated_at = update_at;
+    public void setSupport(Supports support) {
+        this.support = support;
     }
+
+    public Long getClient_id() {
+        return client_id;
+    }
+
+    public void setClient_id(Long clinet_id) {
+        this.client_id = client_id;
+    }
+
 }

@@ -3,6 +3,7 @@
     <head>
         <title th:text="${title}"/>
         <link rel="stylesheet" href="/css/sidebar.css">
+        <link rel="stylesheet" href="/css/common-table.css">
     </head>
 
     <body>
@@ -14,7 +15,7 @@
 
             <h3>Клиента</h3>
 
-            <table>
+            <table class="table-style">
                 <thead>
                 <tr>
                     <th>Дата</th>
@@ -38,27 +39,35 @@
                 </thead>
                 <tbody>
                     <tr th:each="el : ${clients}" class="alert alert-info mt-1">
-                        <th th:text="${el.created_at}"></th>
-                        <th th:text="${el.id}"></th>
-                        <th th:text="${el.type_client}"></th>
-                        <th th:text="${el.type_client}"></th>
-                        <th th:text="${el.full_name}"></th>
-                        <th th:text="${el.id}"></th>
-                        <th th:text="${el.id}"></th>
-                        <th th:text="${el.id}"></th>
-                        <th th:text="${el.id}"></th>
-                        <th th:text="${el.id}"></th>
-                        <th th:text="${el.id}"></th>
-                        <th th:text="${el.id}"></th>
-                        <th th:text="${el.id}"></th>
-                        <th th:text="${el.id}"></th>
-                        <th th:text="${el.id}"></th>
-                        <th th:text="${el.id}"></th>
-                        <th th:text="${el.id}"></th>
+                        <th th:text="${el.created_at == null ? '' : el.created_at}"></th>
+                        <th th:text="${el.id == null ? '' : el.id}"></th>
+                        <th th:text="${el.type_client  == null ? '' :el.type_client}"></th>
+                        <th th:text="${el.organization == null ? '' : el.organization.type_client}"></th>
+                        <th th:text="${el.full_name == null ? '' : el.full_name}"></th>
+                        <th th:text="${el.support == null ? '' : el.support.inn}"></th>
+                        <th th:text="${el.support == null ? '' : el.support.kpp}"></th>
+                        <th th:text="${el.support == null ? '' : el.support.ogrn}"></th>
+                        <th th:text="${el.organization == null ? '' : el.organization.segment}"></th>
+                        <th th:text="${el.organization == null ? '' : el.organization.organization_id}"></th>
+                        <th th:text="${el.organization == null ? '' : el.organization.branch}"></th>
+                        <th th:text="${el.organization == null ? '' : el.organization.code_word}"></th>
+                        <th th:text="${el.accounts == null ? 0 : el.accounts.size()}">
+                        </th>
+                        <th th:text="1"></th>
+                        <th th:text="1"></th>
+                        <th th:text="1"></th>
+                        <th th:text="1"></th>
                     </tr>
                 </tbody>
             </table>
         </main>
 
     </body>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#sidebarCollapse').click()
+        });
+    </script>
+
 </html>
