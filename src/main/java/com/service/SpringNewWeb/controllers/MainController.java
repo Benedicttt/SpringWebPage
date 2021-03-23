@@ -13,10 +13,4 @@ public class MainController {
         return "home";
     }
 
-//    @GetMapping("/create-clients")
-//    public String createClients(Model model) {
-//        model.addAttribute("title", "Создать клиентов");
-//        return "create-clients";
-//    }
-
 }
