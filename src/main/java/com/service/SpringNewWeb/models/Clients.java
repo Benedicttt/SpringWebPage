@@ -1,7 +1,8 @@
 package com.service.SpringNewWeb.models;
 
 import javax.persistence.*;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 
@@ -15,17 +16,25 @@ public class Clients {
     @JoinColumn(name = "client_id")
     private Supports support;
 
-    @OneToMany(fetch = FetchType.EAGER)
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "client_id")
-    private Set<Accounts> accounts;
+    private List<Accounts> accounts =new ArrayList<>();
 
-    public Set<Accounts> getAccounts() {
-        return accounts;
-    }
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "client_id")
+    private List<InfoDuls> infoDuls =new ArrayList<>();
 
-    public void setAccounts(Set<Accounts> accounts) {
-        this.accounts = accounts;
-    }
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "client_id")
+    private List<Cards> cards =new ArrayList<>();
+
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "client_id")
+    private List<ComplianceClients> compliance_clients =new ArrayList<>();
+
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "client_id")
+    private List<Comments> comments =new ArrayList<>();
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -140,4 +149,43 @@ public class Clients {
         this.client_id = client_id;
     }
 
+    public List<Accounts> getAccounts() {
+        return accounts;
+    }
+
+    public void setAccounts(List<Accounts> accounts) {
+        this.accounts = accounts;
+    }
+
+    public List<InfoDuls> getInfoDuls() {
+        return infoDuls;
+    }
+
+    public void setInfoDuls(List<InfoDuls> infoDuls) {
+        this.infoDuls = infoDuls;
+    }
+
+    public List<Cards> getCards() {
+        return cards;
+    }
+
+    public void setCards(List<Cards> cards) {
+        this.cards = cards;
+    }
+
+    public List<Comments> getComments() {
+        return comments;
+    }
+
+    public void setComments(List<Comments> comments) {
+        this.comments = comments;
+    }
+
+    public List<ComplianceClients> getCompliance_clients() {
+        return compliance_clients;
+    }
+
+    public void setCompliance_clients(List<ComplianceClients> compliance_clients) {
+        this.compliance_clients = compliance_clients;
+    }
 }

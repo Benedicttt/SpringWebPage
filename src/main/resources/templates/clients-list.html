@@ -51,12 +51,11 @@
                         <th th:text="${el.organization == null ? '' : el.organization.organization_id}"></th>
                         <th th:text="${el.organization == null ? '' : el.organization.branch}"></th>
                         <th th:text="${el.organization == null ? '' : el.organization.code_word}"></th>
-                        <th th:text="${el.accounts == null ? 0 : el.accounts.size()}">
-                        </th>
-                        <th th:text="1"></th>
-                        <th th:text="1"></th>
-                        <th th:text="1"></th>
-                        <th th:text="1"></th>
+                        <th th:text="${el.accounts == null ? 0 : el.accounts.size()}"></th>
+                        <th th:text="${el.cards == null ? 0 : el.cards.size()}"></th>
+                        <th th:text="${el.compliance_clients == null ? 0 : el.compliance_clients.size()}"></th>
+                        <th th:text="${el.infoDuls == null ? 0 : el.infoDuls.size()}"></th>
+                        <th th:text="${el.comments == null ? 0 : el.comments.size()}"></th>
                     </tr>
                 </tbody>
             </table>

@@ -1,8 +1,6 @@
 package com.service.SpringNewWeb.controllers;
 
-import com.service.SpringNewWeb.models.Accounts;
 import com.service.SpringNewWeb.models.Clients;
-import com.service.SpringNewWeb.models.Organizations;
 import com.service.SpringNewWeb.repo.ClientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

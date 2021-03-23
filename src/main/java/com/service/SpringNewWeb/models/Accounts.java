@@ -4,15 +4,11 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@IdClass(Accounts.class)
 public class Accounts implements Serializable  {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "client_id")
-    private Clients client_id;
+    private Long client_id;
 
-    @Id
     private Long id;
     private String account_number_full;
     private String type_account;
@@ -28,14 +24,6 @@ public class Accounts implements Serializable  {
     private String created_at;
     private String updated_at;
     private String buh;
-
-    public Clients getClient_id() {
-        return client_id;
-    }
-
-    public void setClient_id(Clients client_id) {
-        this.client_id = client_id;
-    }
 
     public String getAccount_number_full() {
         return account_number_full;
@@ -155,5 +143,13 @@ public class Accounts implements Serializable  {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public Long getClient_id() {
+        return client_id;
+    }
+
+    public void setClient_id(Long client_id) {
+        this.client_id = client_id;
     }
 }
