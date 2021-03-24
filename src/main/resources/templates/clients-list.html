@@ -9,15 +9,14 @@
     <body>
         <header th:insert="service-webs/header :: header"></header>
         <sidebar th:insert="service-webs/sidebar :: sidebar"></sidebar>
-        <button id="sidebarCollapse" class="btn btn-dark show-sidebar" style="margin: 10px 10px 10px 290px;">...</button>
+        <button id="sidebarCollapse" class="btn btn-dark show-sidebar">...</button>
 
-        <main style="margin: 0px 90px 0px 290px;">
+        <main class="main-table-client-list">
 
             <h3>Клиента</h3>
-
             <table class="table-style">
                 <thead>
-                <tr>
+                <tr class="th-hover">
                     <th>Дата</th>
                     <th>Id</th>
                     <th>Тип клиента</th>
@@ -38,7 +37,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                    <tr th:each="el : ${clients}" class="alert alert-info mt-1">
+                    <tr th:each="el : ${clients}" class="th-hover">
                         <th th:text="${el.created_at == null ? '' : el.created_at}"></th>
                         <th th:text="${el.id == null ? '' : el.id}"></th>
                         <th th:text="${el.type_client  == null ? '' :el.type_client}"></th>
