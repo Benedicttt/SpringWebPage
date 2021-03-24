@@ -57,11 +57,6 @@ body {
     }
 }
 
-#sidebarCollapse {
-    position: absolute;
-    margin: 10px 200px;
-}
-
 .main-table-client-list {
     margin: 100px 80px 0px 100px;
 }

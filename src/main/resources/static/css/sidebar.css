@@ -165,4 +165,7 @@ a.article:hover {
     }
 }
 
-    //position: absolute;
+#sidebarCollapse {
+    position: absolute;
+    margin: 10px 200px;
+}

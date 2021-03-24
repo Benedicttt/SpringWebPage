@@ -8,8 +8,8 @@
 
     <body>
         <header th:insert="service-webs/header :: header"></header>
+
         <sidebar th:insert="service-webs/sidebar :: sidebar"></sidebar>
-        <button id="sidebarCollapse" class="btn btn-dark show-sidebar">...</button>
 
         <main class="main-table-client-list">
 
@@ -61,11 +61,4 @@
         </main>
 
     </body>
-
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $('#sidebarCollapse').click()
-        });
-    </script>
-
 </html>
